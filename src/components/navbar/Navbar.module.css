@@ -1,0 +1,15 @@
+.items {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.link.active {
+  color: gray;
+}
