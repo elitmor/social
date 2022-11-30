@@ -1,7 +1,14 @@
 .item {
-  color: grey;
+  display: flex;
+  align-items: center;
 }
 
 .avatar {
   width: 40px;
+  margin-right: 10px;
+}
+
+.text {
+  color: #fff;
+  margin-right: 10px;
 }
