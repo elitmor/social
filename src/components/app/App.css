@@ -22,9 +22,10 @@
   background-color: #20232a;
 }
 
-.profile {
+.app-wrapper-content {
   grid-area: c;
   background-color: #20232a;
+  color: #fff;
 }
 
 ul {

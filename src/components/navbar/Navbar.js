@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -5,29 +6,49 @@ const Navbar = () => {
     <nav className='nav'>
       <ul className={styles.items}>
         <li className={styles.item}>
-          <a className={`${styles.link} ${styles.active}`} href='#1'>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/profile'
+          >
             Profile
-          </a>
+          </NavLink>
         </li>
         <li className={styles.item}>
-          <a className={styles.link} href='#2'>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/dialog'
+          >
             Messages
-          </a>
+          </NavLink>
         </li>
         <li className={styles.item}>
-          <a className={styles.link} href='#3'>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/news'
+          >
             News
-          </a>
+          </NavLink>
         </li>
         <li className={styles.item}>
-          <a className={styles.link} href='#4'>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/music'
+          >
             Music
-          </a>
+          </NavLink>
         </li>
         <li className={styles.item}>
-          <a className={styles.link} href='#5'>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/settings'
+          >
             Settings
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
