@@ -1,9 +1,10 @@
 import MyPosts from "./myPosts/MyPosts";
-// import styles from "./Profile.module.css";
+import ProfileInfo from "./profileInfo/ProfileInfo";
 
 const Profile = () => {
   return (
     <div className='profile'>
+      <ProfileInfo />
       <MyPosts />
     </div>
   );

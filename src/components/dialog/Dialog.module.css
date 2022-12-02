@@ -3,17 +3,6 @@
   grid-template-columns: 2fr 10fr;
 }
 
-.item {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  margin: 10px;
-}
-
 .message {
   margin: 10px;
-}
-
-.active {
-  color: #00d8ff;
 }

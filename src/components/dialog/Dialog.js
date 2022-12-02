@@ -1,58 +1,22 @@
-import { NavLink } from "react-router-dom";
-import "./Dialog.module.css";
 import styles from "./Dialog.module.css";
+import DialogItem from "./dialogItem/DialogItem";
+import Message from "./message/Message";
 
 const Dialog = () => {
   return (
     <div className={styles.dialog}>
       <div className={styles.items}>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/1'
-        >
-          Alex
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/2'
-        >
-          Ksy
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/3'
-        >
-          Liza
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/4'
-        >
-          John
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/5'
-        >
-          Victor
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-          className={styles.item}
-          to='/dialog/6'
-        >
-          Alexis
-        </NavLink>
+        <DialogItem name='Alex' id='1' />
+        <DialogItem name='Ksy' id='2' />
+        <DialogItem name='Liza' id='3' />
+        <DialogItem name='John' id='4' />
+        <DialogItem name='Victor' id='5' />
+        <DialogItem name='Alexis' id='6' />
       </div>
       <div className={styles.messages}>
-        <div className={styles.message}>Hi</div>
-        <div className={styles.message}>Hello</div>
-        <div className={styles.message}>You</div>
+        <Message textMessage='Hi' />
+        <Message textMessage='Hello' />
+        <Message textMessage='You' />
       </div>
     </div>
   );
