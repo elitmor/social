@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Dialog.module.css";
 import styles from "./Dialog.module.css";
 
@@ -5,12 +6,48 @@ const Dialog = () => {
   return (
     <div className={styles.dialog}>
       <div className={styles.items}>
-        <div className={`${styles.item} ${styles.active}`}>Alex</div>
-        <div className={styles.item}>Ksy</div>
-        <div className={styles.item}>Liza</div>
-        <div className={styles.item}>John</div>
-        <div className={styles.item}>Victor</div>
-        <div className={styles.item}>Alexis</div>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/1'
+        >
+          Alex
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/2'
+        >
+          Ksy
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/3'
+        >
+          Liza
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/4'
+        >
+          John
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/5'
+        >
+          Victor
+        </NavLink>
+        <NavLink
+          style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+          className={styles.item}
+          to='/dialog/6'
+        >
+          Alexis
+        </NavLink>
       </div>
       <div className={styles.messages}>
         <div className={styles.message}>Hi</div>
