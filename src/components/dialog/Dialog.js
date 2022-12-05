@@ -2,22 +2,7 @@ import styles from "./Dialog.module.css";
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
 
-const dialogsData = [
-  { id: 1, name: "Alex" },
-  { id: 2, name: "Ksy" },
-  { id: 3, name: "Liza" },
-  { id: 4, name: "John" },
-  { id: 5, name: "Victor" },
-  { id: 6, name: "Alexis" },
-];
-
-const messagesData = [
-  { id: 1, textMessage: "Hi" },
-  { id: 2, textMessage: "Hello" },
-  { id: 3, textMessage: "You" },
-];
-
-const Dialog = () => {
+const Dialog = ({ dialogsData, messagesData }) => {
   const dialogs = dialogsData.map((dialog) => (
     <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />
   ));

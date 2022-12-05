@@ -8,7 +8,7 @@ import Profile from "../profile/Profile";
 import Settings from "../settings/Settings";
 import "./App.css";
 
-const App = () => {
+const App = ({ postsData, dialogsData, messagesData }) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -16,8 +16,16 @@ const App = () => {
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/dialog/*' element={<Dialog />} />
+            <Route
+              path='/profile'
+              element={<Profile postsData={postsData} />}
+            />
+            <Route
+              path='/dialog/*'
+              element={
+                <Dialog dialogsData={dialogsData} messagesData={messagesData} />
+              }
+            />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
