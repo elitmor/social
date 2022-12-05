@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dialog from "../dialog/Dialog";
-import Friends from "../friends/Friends";
 import Header from "../header/Header";
 import Music from "../music/Music";
 import Navbar from "../navbar/Navbar";
@@ -28,7 +27,6 @@ const App = ({ state }) => {
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
-            <Route path='/friends' element={<Friends />} />
           </Routes>
         </div>
       </div>

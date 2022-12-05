@@ -50,15 +50,6 @@ const Navbar = () => {
             Settings
           </NavLink>
         </li>
-        <li className={styles.item}>
-          <NavLink
-            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-            className={styles.link}
-            to='/friends'
-          >
-            Friends
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );
