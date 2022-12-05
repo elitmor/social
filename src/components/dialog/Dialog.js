@@ -2,12 +2,12 @@ import styles from "./Dialog.module.css";
 import DialogItem from "./dialogItem/DialogItem";
 import Message from "./message/Message";
 
-const Dialog = ({ dialogsData, messagesData }) => {
-  const dialogs = dialogsData.map((dialog) => (
+const Dialog = ({ state }) => {
+  const dialogs = state.dialogs.map((dialog) => (
     <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} />
   ));
 
-  const messages = messagesData.map((message) => (
+  const messages = state.messages.map((message) => (
     <Message key={message.id} textMessage={message.textMessage} />
   ));
 
