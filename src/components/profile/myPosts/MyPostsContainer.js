@@ -8,17 +8,18 @@ import MyPosts from "./MyPosts";
 const mapStateToProps = (state) => {
   return {
     posts: state.profilePage.posts,
-    newPostsText: state.profilePage.newPostsText,
+    newPostText: state.profilePage.newPostText,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    updateNewPostText: (text) => {
+      let action = updateNewPostTextActionCreator(text);
+      dispatch(action);
+    },
     addPost: () => {
       dispatch(addPostActionCreator());
-    },
-    updateNewPostText: (text) => {
-      dispatch(updateNewPostTextActionCreator(text));
     },
   };
 };
