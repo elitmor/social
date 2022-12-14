@@ -6,9 +6,10 @@ import Navbar from "../navbar/Navbar";
 import News from "../news/News";
 import Profile from "../profile/Profile";
 import Settings from "../settings/Settings";
+import UsersContainer from "../users/UsersContainer";
 import "./App.css";
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -21,6 +22,7 @@ const App = (props) => {
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
+            <Route path='/users' element={<UsersContainer />} />
           </Routes>
         </div>
       </div>

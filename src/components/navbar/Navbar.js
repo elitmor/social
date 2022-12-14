@@ -50,6 +50,15 @@ const Navbar = () => {
             Settings
           </NavLink>
         </li>
+        <li className={styles.item}>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
+            className={styles.link}
+            to='/users'
+          >
+            Users
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
