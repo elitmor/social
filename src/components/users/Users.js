@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import avatar from "../../assets/avatar.svg";
 import styles from "./Users.module.css";
 
@@ -28,11 +29,13 @@ const Users = (props) => {
       {props.users.map((user) => (
         <div key={user.id}>
           <div className={styles.inner}>
-            <img
-              className={styles.avatar}
-              src={user.photos.small != null ? user.photos.small : avatar}
-              alt='avatar'
-            />
+            <NavLink to={`/profile/${user.id}`}>
+              <img
+                className={styles.avatar}
+                src={user.photos.small != null ? user.photos.small : avatar}
+                alt='avatar'
+              />
+            </NavLink>
             <div>{user.name}</div>
             <div>{user.status}</div>
             <div>{"user.location.country"}</div>

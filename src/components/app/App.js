@@ -4,7 +4,7 @@ import Header from "../header/Header";
 import Music from "../music/Music";
 import Navbar from "../navbar/Navbar";
 import News from "../news/News";
-import Profile from "../profile/Profile";
+import ProfileContainer from "../profile/ProfileContainer";
 import Settings from "../settings/Settings";
 import UsersContainer from "../users/UsersContainer";
 import "./App.css";
@@ -17,7 +17,7 @@ const App = () => {
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/*' element={<ProfileContainer />} />
             <Route path='/dialog/*' element={<DialogsContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
