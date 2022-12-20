@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DialogsContainer from "../dialogs/DialogsContainer";
-import Header from "../header/Header";
+import HeaderContainer from "../header/HeaderContainer";
 import Music from "../music/Music";
 import Navbar from "../navbar/Navbar";
 import News from "../news/News";
@@ -13,11 +13,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile/*' element={<ProfileContainer />} />
+            <Route path='/profile/:userId' element={<ProfileContainer />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path='/dialog/*' element={<DialogsContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
