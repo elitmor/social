@@ -22,23 +22,21 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map((user) => {
-          if (user.id === action.userID) {
+          if (user.id === action.userId) {
             return { ...user, followed: true };
           }
           return user;
         }),
-        followed: true,
       };
     case UNFOLLOW:
       return {
         ...state,
         users: state.users.map((user) => {
-          if (user.id === action.userID) {
+          if (user.id === action.userId) {
             return { ...user, followed: false };
           }
           return user;
         }),
-        followed: false,
       };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
@@ -53,8 +51,8 @@ const usersReducer = (state = initialState, action) => {
 };
 
 export const setUsers = (users) => ({ type: SET_USERS, users });
-export const follow = (userID) => ({ type: FOLLOW, userID });
-export const unfollow = (userID) => ({ type: UNFOLLOW, userID });
+export const follow = (userId) => ({ type: FOLLOW, userId });
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
 export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
