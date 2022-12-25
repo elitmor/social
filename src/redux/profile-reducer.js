@@ -56,12 +56,10 @@ export const updateNewPostText = (text) => ({
   newText: text,
 });
 
-export const getProfile = (userId) => {
-  return (dispatch) => {
-    usersAPI.getProfile(userId).then((response) => {
-      dispatch(setUserProfile(response.data));
-    });
-  };
+export const getProfile = (userId) => (dispatch) => {
+  usersAPI.getProfile(userId).then((response) => {
+    dispatch(setUserProfile(response.data));
+  });
 };
 
 export default profileReducer;
