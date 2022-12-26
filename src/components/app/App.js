@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DialogsContainer from "../dialogs/DialogsContainer";
 import HeaderContainer from "../header/HeaderContainer";
+import Login from "../login/Login";
 import Music from "../music/Music";
 import Navbar from "../navbar/Navbar";
 import News from "../news/News";
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
             <Route path='/users' element={<UsersContainer />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </div>
       </div>
