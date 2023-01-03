@@ -1,4 +1,4 @@
-import Paginator from "../../common/Paginator";
+import Paginator from "../../common/paginator/Paginator";
 import User from "./User";
 import styles from "./Users.module.css";
 
@@ -15,7 +15,7 @@ let Users = ({
       <Paginator
         currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalUsersCount}
         pageSize={pageSize}
       />
       <div className={styles.inner}>
