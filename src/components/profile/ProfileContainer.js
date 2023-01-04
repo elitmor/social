@@ -11,7 +11,7 @@ import {
 import Profile from "./Profile";
 
 class ProfileContainer extends Component {
-  componentDidMount() {
+  refreshProfile() {
     let userId = this.props.router.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
@@ -21,6 +21,15 @@ class ProfileContainer extends Component {
     }
     this.props.getProfile(userId);
     this.props.getStatus(userId);
+  }
+
+  componentDidMount() {
+    this.refreshProfile();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId)
+      this.refreshProfile();
   }
 
   render() {

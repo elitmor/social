@@ -1,3 +1,7 @@
 .info {
   color: #fff;
 }
+
+.avatar {
+  max-width: 100px;
+}
