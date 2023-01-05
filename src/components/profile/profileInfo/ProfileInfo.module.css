@@ -3,5 +3,7 @@
 }
 
 .avatar {
+  display: block;
   max-width: 100px;
+  margin-bottom: 10px;
 }
