@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import { connect } from "react-redux";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Preloader from "../../common/preloader/Preloader";
 import { initializeApp } from "../../redux/app-reducer";
 import HeaderContainer from "../header/HeaderContainer";
@@ -26,7 +26,7 @@ class App extends Component {
       return <Preloader />;
     }
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div className='app-wrapper'>
           <HeaderContainer />
           <Navbar />
@@ -47,11 +47,13 @@ class App extends Component {
                 <Route path='/settings' element={<Settings />} />
                 <Route path='/users' element={<UsersContainer />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/' element={<Navigate to='/profile' />} />
+                <Route path='*' element={<div>404 NOT FOUND</div>} />
               </Routes>
             </Suspense>
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
