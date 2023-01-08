@@ -27,33 +27,6 @@ const Navbar = () => {
           <NavLink
             style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
             className={styles.link}
-            to='/news'
-          >
-            News
-          </NavLink>
-        </li>
-        <li className={styles.item}>
-          <NavLink
-            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-            className={styles.link}
-            to='/music'
-          >
-            Music
-          </NavLink>
-        </li>
-        <li className={styles.item}>
-          <NavLink
-            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-            className={styles.link}
-            to='/settings'
-          >
-            Settings
-          </NavLink>
-        </li>
-        <li className={styles.item}>
-          <NavLink
-            style={({ isActive }) => ({ color: isActive ? "#00d8ff" : "#fff" })}
-            className={styles.link}
             to='/users'
           >
             Users

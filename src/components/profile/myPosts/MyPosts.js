@@ -4,14 +4,14 @@ import {
   maxLengthCreator,
   required,
 } from "../../../utils/validators/validators";
-import MyPost from "./MyPost/MyPost";
+import Post from "./Post/Post";
 import styles from "./MyPosts.module.css";
 
 const maxLength10 = maxLengthCreator(10);
 
 const MyPosts = (props) => {
   const items = props.posts.map((item) => (
-    <MyPost key={item.id} message={item.message} likesCount={item.likesCount} />
+    <Post key={item.id} message={item.message} likesCount={item.likesCount} />
   ));
 
   const onAddPost = (value) => {

@@ -1,7 +1,7 @@
 import avatar from "../../../../assets/avatar.svg";
-import styles from "./MyPost.module.css";
+import styles from "./Post.module.css";
 
-const MyPost = ({ message, likesCount }) => {
+const Post = ({ message, likesCount }) => {
   return (
     <div className={styles.item}>
       <img className={styles.avatar} src={avatar} alt='avatar' />
@@ -11,4 +11,4 @@ const MyPost = ({ message, likesCount }) => {
   );
 };
 
-export default MyPost;
+export default Post;

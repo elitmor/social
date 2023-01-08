@@ -5,10 +5,7 @@ import Preloader from "../../common/preloader/Preloader";
 import { initializeApp } from "../../redux/app-reducer";
 import HeaderContainer from "../header/HeaderContainer";
 import Login from "../login/Login";
-import Music from "../music/Music";
 import Navbar from "../navbar/Navbar";
-import News from "../news/News";
-import Settings from "../settings/Settings";
 import UsersContainer from "../users/UsersContainer";
 import "./App.css";
 
@@ -42,13 +39,10 @@ class App extends Component {
                 <Route path='/profile/:userId' element={<ProfileContainer />} />
                 <Route path='/profile' element={<ProfileContainer />} />
                 <Route path='/dialog/*' element={<DialogsContainer />} />
-                <Route path='/news' element={<News />} />
-                <Route path='/music' element={<Music />} />
-                <Route path='/settings' element={<Settings />} />
                 <Route path='/users' element={<UsersContainer />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/' element={<Navigate to='/profile' />} />
                 <Route path='*' element={<div>404 NOT FOUND</div>} />
+                <Route path='/' element={<Navigate to='/profile' />} />
               </Routes>
             </Suspense>
           </div>
