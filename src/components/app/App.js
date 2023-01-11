@@ -39,7 +39,10 @@ class App extends Component {
                 <Route path='/profile/:userId' element={<ProfileContainer />} />
                 <Route path='/profile' element={<ProfileContainer />} />
                 <Route path='/dialog/*' element={<DialogsContainer />} />
-                <Route path='/users' element={<UsersContainer />} />
+                <Route
+                  path='/users'
+                  element={<UsersContainer pageTitle={"Самураи"} />}
+                />
                 <Route path='/login' element={<Login />} />
                 <Route path='*' element={<div>404 NOT FOUND</div>} />
                 <Route path='/' element={<Navigate to='/profile' />} />

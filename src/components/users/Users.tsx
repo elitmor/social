@@ -1,8 +1,21 @@
+import { FC } from "react";
 import Paginator from "../../common/paginator/Paginator";
+import { UserType } from "../../types/types";
 import User from "./User";
 import styles from "./Users.module.css";
 
-let Users = ({
+type PropsType = {
+  totalUsersCount: number;
+  pageSize: number;
+  currentPage: number;
+  onPageChanged: (pageNumber: number) => void;
+  users: Array<UserType>;
+  followingInProgress: Array<number>;
+  unfollow: (userId: number) => void;
+  follow: (userId: number) => void;
+};
+
+let Users: FC<PropsType> = ({
   currentPage,
   totalUsersCount,
   pageSize,

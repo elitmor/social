@@ -14,7 +14,7 @@ const initialState = {
   users: [] as Array<UserType>,
   pageSize: 10,
   totalUsersCount: 0,
-  page: 1,
+  currentPage: 1,
   isFetching: true,
   followingInProgress: [] as Array<number>, // array of users id
 };
@@ -41,7 +41,7 @@ const usersReducer = (state = initialState, action: any): InitialStateType => {
         }),
       };
     case SET_CURRENT_PAGE:
-      return { ...state, page: action.page };
+      return { ...state, currentPage: action.currentPage };
     case SET_TOTAL_USERS_COUNT:
       return { ...state, totalUsersCount: action.totalUsersCount };
     case TOGGLE_IS_FETCHING:
@@ -91,12 +91,12 @@ export const unfollowSuccess = (userId: number): UnfollowSuccessType => ({
 
 export type SetCurrentPageType = {
   type: typeof SET_CURRENT_PAGE;
-  page: number;
+  currentPage: number;
 };
 
-export const setCurrentPage = (page: number): SetCurrentPageType => ({
+export const setCurrentPage = (currentPage: number): SetCurrentPageType => ({
   type: SET_CURRENT_PAGE,
-  page,
+  currentPage,
 });
 
 export type SetTotalUsersCountType = {
