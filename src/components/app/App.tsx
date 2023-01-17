@@ -1,8 +1,9 @@
-import React, { Component, lazy, Suspense } from "react";
+import { Component, lazy, Suspense } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Preloader from "../../common/preloader/Preloader";
 import { initializeApp } from "../../redux/app-reducer";
+import { AppStateType } from "../../redux/store";
 import HeaderContainer from "../header/HeaderContainer";
 import Login from "../login/Login";
 import Navbar from "../navbar/Navbar";
@@ -13,9 +14,27 @@ const ProfileContainer = lazy(() => import("../profile/ProfileContainer"));
 
 const DialogsContainer = lazy(() => import("../dialogs/DialogsContainer"));
 
-class App extends Component {
+type MapPropsType = ReturnType<typeof mapStateToProps>;
+
+type DispatchPropsType = {
+  initializeApp: () => void;
+};
+
+class App extends Component<MapPropsType & DispatchPropsType> {
+  catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
+    alert("Some error occurred");
+  };
+
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      "unhandledrejection",
+      this.catchAllUnhandledErrors
+    );
   }
 
   render() {
@@ -55,7 +74,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
   return {
     initialized: state.app.initialized,
   };

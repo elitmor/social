@@ -1,15 +1,33 @@
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import avatar from "../../assets/avatar.svg";
+// import avatar from "../../assets/avatar";
+import { UserType } from "../../types/types";
 import styles from "./User.module.css";
 
-let User = ({ user, followingInProgress, unfollow, follow }) => {
+type PropsType = {
+  user: UserType;
+  followingInProgress: Array<number>;
+  follow: (userId: number) => void;
+  unfollow: (userId: number) => void;
+};
+
+const User: FC<PropsType> = ({
+  user,
+  followingInProgress,
+  follow,
+  unfollow,
+}) => {
   return (
     <div>
       <span>
         <div>
           <NavLink to={"/profile/" + user.id}>
             <img
-              src={user.photos.small !== null ? user.photos.small : avatar}
+              src={
+                user.photos.small !== null
+                  ? user.photos.small
+                  : "https://thumbs.dreamstime.com/b/businessman-avatar-line-icon-vector-illustration-design-79327237.jpg"
+              }
               className={styles.avatar}
               alt='avatar'
             />

@@ -1,11 +1,21 @@
-import { useState } from "react";
-import avatar from "../../../assets/avatar.svg";
+import { ChangeEvent, FC, useState } from "react";
+// import avatar from "../../../assets/avatar";
 import Preloader from "../../../common/preloader/Preloader";
-import ProfileDataForm from "./ProfileDataForm";
+import { ContactsType, ProfileType } from "../../../types/types";
+import ProfileDataFormReduxForm from "./ProfileDataForm";
 import styles from "./ProfileInfo.module.css";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
-const ProfileInfo = ({
+type PropsType = {
+  profile: ProfileType | null;
+  status: string;
+  updateStatus: (status: string) => void;
+  isOwner: boolean;
+  savePhoto: (file: File) => void;
+  saveProfile: (profile: ProfileType) => Promise<any>;
+};
+
+const ProfileInfo: FC<PropsType> = ({
   profile,
   status,
   updateStatus,
@@ -19,13 +29,14 @@ const ProfileInfo = ({
     return <Preloader />;
   }
 
-  const onMainPhotoSelected = (e) => {
-    if (e.target.files.length) {
+  const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
       savePhoto(e.target.files[0]);
     }
   };
 
-  const onSubmit = (formData) => {
+  const onSubmit = (formData: ProfileType) => {
+    // todo: remove then
     saveProfile(formData).then(() => {
       setEditMode(false);
     });
@@ -36,12 +47,15 @@ const ProfileInfo = ({
       <h4 className={styles.info}>ProfileInfo</h4>
       <img
         className={styles.avatar}
-        src={profile.photos.large || avatar}
+        src={
+          profile.photos.large ||
+          "https://thumbs.dreamstime.com/b/businessman-avatar-line-icon-vector-illustration-design-79327237.jpg"
+        }
         alt='avatar'
       />
       {isOwner && <input type='file' onChange={onMainPhotoSelected} />}
       {editMode ? (
-        <ProfileDataForm
+        <ProfileDataFormReduxForm
           initialValues={profile}
           profile={profile}
           onSubmit={onSubmit}
@@ -60,7 +74,17 @@ const ProfileInfo = ({
   );
 };
 
-const ProfileData = ({ profile, isOwner, goToEditMode }) => {
+type ProfileDataPropsType = {
+  profile: ProfileType;
+  isOwner: boolean;
+  goToEditMode: () => void;
+};
+
+const ProfileData: FC<ProfileDataPropsType> = ({
+  profile,
+  isOwner,
+  goToEditMode,
+}) => {
   return (
     <div>
       {isOwner && (
@@ -90,7 +114,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
             <Contact
               key={key}
               contactTitle={key}
-              contactValue={profile.contacts[key]}
+              contactValue={profile.contacts[key as keyof ContactsType]}
             />
           );
         })}
@@ -99,7 +123,12 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   );
 };
 
-const Contact = ({ contactTitle, contactValue }) => {
+type ContactsPropsType = {
+  contactTitle: string;
+  contactValue: string;
+};
+
+const Contact: FC<ContactsPropsType> = ({ contactTitle, contactValue }) => {
   return (
     <div className={styles.contact}>
       <b>{contactTitle}</b>: {contactValue}

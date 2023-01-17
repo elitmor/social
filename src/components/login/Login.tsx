@@ -2,7 +2,12 @@ import { FC } from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { InjectedFormProps, reduxForm } from "redux-form";
-import { createField, Input } from "../../common/formsControls/formsControls";
+import {
+  createField,
+  GetStringKeys,
+  Input,
+} from "../../common/formsControls/formsControls";
+import { login } from "../../redux/auth-reducer";
 import { AppStateType } from "../../redux/store";
 import { required } from "../../utils/validators/validators";
 import styles from "./../../common/formsControls/formsControls.module.css";
@@ -79,7 +84,8 @@ export type LoginFormValuesType = {
   password: string;
   email: string;
 };
-type LoginFormValuesTypeKeys = Extract<keyof LoginFormValuesType, string>;
+
+type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>;
 
 const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = (props) => {
   const onSubmit = (formData: LoginFormValuesType) => {
@@ -107,4 +113,4 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
   isAuth: state.auth.isAuth,
 });
 
-export default connect(mapStateToProps, { Login })(Login);
+export default connect(mapStateToProps, { login })(Login);

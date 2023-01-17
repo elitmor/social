@@ -1,8 +1,14 @@
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./DialogItem.module.css";
 import avatar from "../../../assets/avatar.svg";
 
-const DialogItem = ({ name, id }) => {
+type PropsType = {
+  id: number;
+  name: string;
+};
+
+const DialogItem: FC<PropsType> = ({ name, id }) => {
   const path = `dialog/${id}`;
   return (
     <div className={styles.item}>
