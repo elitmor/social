@@ -4,10 +4,10 @@ export const updateObjectInArray = (
   objPropName: any,
   newObjProps: any
 ) => {
-  return items.map((user: any) => {
-    if (user[objPropName] === itemId) {
-      return { ...user, ...newObjProps };
+  return items.map((u: any) => {
+    if (u[objPropName] === itemId) {
+      return { ...u, ...newObjProps };
     }
-    return user;
+    return u;
   });
 };
