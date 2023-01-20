@@ -1,6 +1,6 @@
-import usersReducer, { actions, InitialStateType } from "./users-reducer";
+import usersReducer, { actions, InitialState } from "./users-reducer";
 
-let state: InitialStateType;
+let state: InitialState;
 
 beforeEach(() => {
   state = {
@@ -39,6 +39,10 @@ beforeEach(() => {
     currentPage: 2,
     isFetching: false,
     followingInProgress: [],
+    filter: {
+      term: "",
+      friend: null as null | boolean,
+    },
   };
 });
 
