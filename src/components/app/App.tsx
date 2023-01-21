@@ -5,9 +5,9 @@ import Preloader from "../../common/preloader/Preloader";
 import { initializeApp } from "../../redux/app-reducer";
 import { AppStateType } from "../../redux/store";
 import HeaderContainer from "../header/HeaderContainer";
-import Login from "../login/Login";
+import { LoginPage } from "../login/LoginPage";
 import Navbar from "../navbar/Navbar";
-import UsersContainer from "../users/UsersContainer";
+import { UsersPage } from "../users/UsersContainer";
 import "./App.css";
 
 const ProfileContainer = lazy(() => import("../profile/ProfileContainer"));
@@ -60,9 +60,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                 <Route path='/dialog/*' element={<DialogsContainer />} />
                 <Route
                   path='/users'
-                  element={<UsersContainer pageTitle={"Самураи"} />}
+                  element={<UsersPage pageTitle={"Самураи"} />}
                 />
-                <Route path='/login' element={<Login />} />
+                <Route path='/login' element={<LoginPage />} />
                 <Route path='*' element={<div>404 NOT FOUND</div>} />
                 <Route path='/' element={<Navigate to='/profile' />} />
               </Routes>

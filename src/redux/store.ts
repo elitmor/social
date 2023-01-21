@@ -48,4 +48,6 @@ const store = createStore(
 // @ts-ignore
 window.__store__ = store;
 
+export type AppDispatch = typeof store.dispatch;
+
 export default store;
