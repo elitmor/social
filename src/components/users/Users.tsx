@@ -54,7 +54,7 @@ export const Users: FC<PropsType> = (props) => {
   const navigateSearch = useNavigateSearch();
   const location = useLocation();
   useEffect(() => {
-    navigateSearch("/users", {
+    navigateSearch("/developers", {
       page: `${currentPage}`,
       count: `${pageSize}`,
       term: `${filter.term}`,
