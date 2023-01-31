@@ -25,6 +25,8 @@ const ProfileContainer = lazy(() => import("../profile/ProfileContainer"));
 
 const DialogsContainer = lazy(() => import("../dialogs/DialogsContainer"));
 
+const ChatPage = lazy(() => import("../../pages/chat/ChatPage"));
+
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 
 type DispatchPropsType = {
@@ -97,7 +99,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                     icon={<NotificationOutlined />}
                     title='subnav 3'
                   >
-                    <Menu.Item key='9'>option9</Menu.Item>
+                    <Menu.Item key='9'>
+                      <Link to='/chat'>Chat</Link>
+                    </Menu.Item>
                     <Menu.Item key='10'>option10</Menu.Item>
                     <Menu.Item key='11'>option11</Menu.Item>
                     <Menu.Item key='12'>option12</Menu.Item>
@@ -124,6 +128,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                       element={<UsersPage pageTitle={"Самураи"} />}
                     />
                     <Route path='/login' element={<LoginPage />} />
+                    <Route path='/chat' element={<ChatPage />} />
                     <Route path='*' element={<div>404 NOT FOUND</div>} />
                     <Route path='/' element={<Navigate to='/profile' />} />
                   </Routes>

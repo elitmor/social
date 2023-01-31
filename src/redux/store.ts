@@ -4,15 +4,16 @@ import {
   combineReducers,
   compose,
   createStore,
-} from "redux";
-import { reducer as formReducer } from "redux-form";
-import thunk, { ThunkAction } from "redux-thunk";
-import appReducer from "./app-reducer";
-import authReducer from "./auth-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import profileReducer from "./profile-reducer";
-import sidebarReducer from "./sidebar-reducer";
-import usersReducer from "./users-reducer";
+} from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import thunk, { ThunkAction } from 'redux-thunk';
+import appReducer from './app-reducer';
+import authReducer from './auth-reducer';
+import chatReducer from './chat-reducer';
+import dialogsReducer from './dialogs-reducer';
+import profileReducer from './profile-reducer';
+import sidebarReducer from './sidebar-reducer';
+import usersReducer from './users-reducer';
 
 const rootReducer = combineReducers({
   profilePage: profileReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   form: formReducer,
   app: appReducer,
+  chat: chatReducer,
 });
 
 type RootReducerType = typeof rootReducer;
